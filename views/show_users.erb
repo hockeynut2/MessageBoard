@@ -1,0 +1,21 @@
+<div id="toolbar"><a href="/out"><button class="btn toolbar_button btn-primary" style="width: 50%">Sign out</button></a>
+<a href="/threads"><button class="btn toolbar_button btn-primary" style="width: 50%">View all threads</button></a></div>
+
+<div style="height: 40px"> </div>
+
+<h1 style="text-align: center">Marvel Message Board</h1>
+
+<h2>Users</h2>
+
+<table class="table" style="border-bottom: 1px solid black">
+  <tr>
+    <th>Username</th>
+    <th>Posts</th>
+  </tr>
+  <% @users.each do |user| %>
+      <tr>
+        <td><a href="/user/<%= user.id.to_s %>"><%= user.username %></a></td>
+        <td><%= user.posts.length %></td>
+      </tr>
+  <% end %>
+</table>

@@ -1,0 +1,25 @@
+<div class="navbar-fixed-top"><a href="/out"><button class="btn toolbar_button btn-primary">Sign out</button></a>
+  <a href="/threads"><button class="btn toolbar_button btn-primary">View all threads</button></a>
+  <a href="/users"><button class="btn toolbar_button btn-primary">View all users</button></a></div>
+
+<div style="height: 40px"> </div>
+
+<h1 style="text-align: center">Marvel Message Board</h1>
+
+<h2><%= @user.username %>'s Posts</h2>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Thread</th>
+    <th>Time Posted</th>
+  </tr>
+  <% @posts.each_with_index do |post, i| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.info %></td>
+        <td><a href="/thread/<%= @threads[i] %>"><%= @topics[i] %></a></td>
+        <td style="width: 250px"><%= post.time %></td>
+      </tr>
+  <% end %>
+</table>

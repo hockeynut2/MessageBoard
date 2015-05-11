@@ -1,0 +1,41 @@
+<div id="toolbar"><a href="/out"><button class="btn toolbar_button btn-primary">Sign out</button></a>
+  <a href="/threads"><button class="btn toolbar_button btn-primary">View all threads</button></a>
+<a href="/users"><button class="btn toolbar_button btn-primary">View all users</button></a></div>
+
+<div style="height: 40px"> </div>
+
+<h1 style="text-align: center">Marvel Message Board</h1>
+
+<h2 style="text-align: center"><%= @thread.topic %></h2>
+
+<table class="table" style="border-bottom: 1px solid black">
+  <tr>
+    <th>Title</th>
+    <th>Post</th>
+    <th>Creator</th>
+    <th style="width: 250px">Created at</th>
+    <th></th>
+  </tr>
+  <% @posts.each_with_index do |post, i| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.info %></td>
+        <td><a href="/user/<%= @author[i] %>"><%= @authors[i] %></a></td>
+        <td style="width: 250px"><%= post.time %></td>
+        <td><form method="post" action="/post/<%= post.id %>/delete" class="remove-post">
+          <input type="submit" value="Remove" class="btn btn-danger">
+        </form></td>
+      </tr>
+  <% end %>
+</table>
+
+<form method="post" action="/thread/<%= @thread.id %>/posts" style="text-align: center">
+  <div class="form-group">
+    <input placeholder="Post Title" name="title" class="center">
+  </div>
+  <div class="form-group">
+    <textarea placeholder="Post" name="info" style="width: 150px; height: 100px" class="center"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary">
+</form>
+
