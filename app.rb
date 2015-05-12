@@ -119,3 +119,7 @@ get '/user/:id' do
   end
   erb :view_user
 end
+
+post '/searchuser' do
+
+end

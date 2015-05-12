@@ -5,35 +5,33 @@
 
 <div style="height: 95px"> </div>
 
-<div style="text-align: center"><img src="images/marvellogo.png" style="height: 40px; width: 85px"></div>
+<div style="text-align: center"><img src="images/marvellogo.png" style="height: 130px; width: 200px"></div>
 
 <h2 style="text-align: center">Threads</h2>
 
-<table class="table thread-table" style="border-bottom: 1px solid white; background-color: white">
+<table class="table thread-table" style="">
   <tr>
     <th>Topic</th>
     <th>Description</th>
+    <th>Total posts</th>
     <th style="width: 250px">Created at</th>
-    <th></th>
   </tr>
   <% @topics.each do |thread| %>
       <tr class="thread-row">
         <td><a href="/thread/<%= thread.id.to_s %>" style="text-decoration: none"><%= thread.topic %></a></td>
         <td><%= thread.description %></td>
+        <td><%= thread.posts.length %></td>
         <td style="width: 250px"><%= thread.time %></td>
-        <td><form method="post" action="/thread/<%= thread.id %>/delete" class="remove-form">
-          <input type="submit" value="Remove" class="btn btn-danger">
-        </form></td>
       </tr>
   <% end %>
 </table>
 
-<form method="post" action="/threads/create" class="form-inline">
+<form method="post" action="/threads/create">
   <div class="form-group">
-  <input placeholder="Thread Name" name="topic" class="center">
+  <input placeholder="Thread Name" name="topic" class="form-control center">
     </div>
   <div class="form-group">
-  <textarea placeholder="Description" name="description" style="width: 150px; height: 100px" class="center"></textarea>
+  <textarea placeholder="Description" name="description" class="form-control center"></textarea>
   </div>
-    <input type="submit" class="btn btn-primary">
+    <input type="submit" class="btn btn-primary btn-block">
 </form>
