@@ -11,8 +11,8 @@
       </div>
       <button type="submit" class="btn btn-primary">Find user</button>
     </form>
-    <a href="/users"><button type="button" class="btn btn-primary">Show all users</button></a>
-    <a href="/threads"><button type="button" class="btn btn-primary">Show all threads</button></a>
+    <a href="/users"><button type="button" class="btn btn-primary" style="width: 300px">Show all users</button></a>
+    <a href="/threads"><button type="button" class="btn btn-primary" style="width: 300px">Show all threads</button></a>
     <p class="navbar-text navbar-right" style="margin-right: 20px"><a href="/out" class="navbar-link">Sign out</a></p>
     <p class="navbar-text navbar-right" style="margin-right: 20px">Signed in as <a href="/user/<%= session[:id] %>" class="navbar-link"><%= User.first(:id => session[:id]).username %></a></p>
   </div>
@@ -20,7 +20,7 @@
 
 <div style="height: 95px"> </div>
 
-<div style="text-align: center"><img src="images/marvellogo.png" style="height: 120px; width: 200px"></div>
+<div style="text-align: center"><img src="images/marvellogo.png" style="height: 120px; width: 200px" alt="Marvel"></div>
 
 
 <h2><%= @user.username %>'s Posts</h2>
