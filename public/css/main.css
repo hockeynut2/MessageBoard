@@ -19,3 +19,11 @@
     border-right: 1px solid black;
     border-bottom: 1px solid black;
 }
+
+th, td {
+    font-size: 16px;
+}
+
+.remove-post {
+    height: 12px;
+}

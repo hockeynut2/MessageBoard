@@ -47,8 +47,8 @@ post '/threads/create' do
   t = Topic.new
   t.topic = params[:topic]
   t.description = params[:description]
-  time = Time.now
-  t.time = time.strftime("%D at %I:%M:%S %p")
+  t.time = Time.now
+  #t.time = time.strftime("%D at %I:%M:%S %p")
   t.save
   redirect '/threads'
 end
@@ -81,8 +81,7 @@ post '/thread/:id/posts' do
   p = Post.new
   p.title = params[:title]
   p.info = params[:info]
-  time = Time.now
-  p.time = time.strftime("%D at %I:%M:%S %p")
+  p.time = Time.now
   p.user_id = session[:id]
   p.topic_id = params[:id]
   p.save
@@ -120,6 +119,12 @@ get '/user/:id' do
   erb :view_user
 end
 
-post '/searchuser' do
-
+post '/searchuser/' do
+  searched = params[:search]
+  u = User.first(:username => searched)
+  if u
+    redirect '/user/' + u.id.to_s
+  else
+    redirect '/users'
+  end
 end

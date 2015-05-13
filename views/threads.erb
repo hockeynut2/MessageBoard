@@ -1,11 +1,26 @@
-<div id="toolbar">
-  <a href="/out"><button class="btn toolbar_button btn-primary" style="width: 50%">Sign out</button></a>
-  <a href="/users"><button class="btn toolbar_button btn-primary" style="width: 50%">View all users</button></a>
-</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/threads">
+        <img src="images/icon.png" width="20px" height="20px">
+      </a>
+    </div>
+    <form class="navbar-form navbar-left" method="post" action="/searchuser/">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Users" name="search">
+      </div>
+      <button type="submit" class="btn btn-primary">Find user</button>
+    </form>
+    <a href="/users"><button type="button" class="btn btn-primary">Show all users</button></a>
+    <a href="/threads"><button type="button" class="btn btn-primary">Show all threads</button></a>
+    <p class="navbar-text navbar-right" style="margin-right: 20px"><a href="/out" class="navbar-link">Sign out</a></p>
+    <p class="navbar-text navbar-right" style="margin-right: 20px">Signed in as <a href="/user/<%= session[:id] %>" class="navbar-link"><%= User.first(:id => session[:id]).username %></a></p>
+  </div>
+</nav>
 
 <div style="height: 95px"> </div>
 
-<div style="text-align: center"><img src="images/marvellogo.png" style="height: 130px; width: 200px"></div>
+<div style="text-align: center"><img src="images/marvellogo.png" style="height: 120px; width: 200px"></div>
 
 <h2 style="text-align: center">Threads</h2>
 
