@@ -1,12 +1,13 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-    <a href="/users"><button type="button" class="btn btn-primary" style="width: 300px">Show all users</button></a>
-    <a href="/threads"><button type="button" class="btn btn-primary" style="width: 300px">Show all threads</button></a>
     <div class="navbar-header">
       <a class="navbar-brand" href="/threads">
         <img src="images/icon.png" width="20px" height="20px">
       </a>
     </div>
+    <a href="/users"><button type="button" class="btn btn-primary navbar-left" style="width: 300px">Show all users</button></a>
+    <div style="width: 10px" class="navbar-left"> </div>
+    <a href="/threads"><button type="button" class="btn btn-primary navbar-left" style="width: 300px">Show all threads</button></a>
     <form class="navbar-form navbar-left" method="post" action="/searchuser/">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search Users" name="search">
